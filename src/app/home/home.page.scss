@@ -1,0 +1,112 @@
+.homeBody {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.lowerBody {
+  background-color: rgb(1, 37, 37);
+  margin-top: 20vh;
+  height: 80vh;
+  width: 100vw;
+  .topRow-web {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding-top: 5vh;
+    .box {
+      height: 30vh;
+      width: 25vh;
+      border-radius: 5px;
+      background-color: white;
+    }
+    .frame {
+      height: 50vh;
+      width: 80vh;
+      border-radius: 5px;
+      background-color: rgb(154, 84, 84);
+      margin-top: -20vh;
+    }
+  }
+}
+
+@mixin white-gradient {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+$animationSpeed: 40s;
+
+// Animation
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
+
+// Styling
+.slider {
+  background: white;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+  height: 30vh;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  margin-top: 20px;
+  width: 80vw;
+
+  &::before,
+  &::after {
+    @include white-gradient;
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+  }
+
+  &::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+
+  &::before {
+    left: 0;
+    top: 0;
+  }
+
+  .slide-track {
+    animation: scroll $animationSpeed linear infinite;
+    display: flex;
+    width: calc(250px * 14);
+  }
+
+  .slide {
+    height: 100px;
+    width: 250px;
+  }
+}
+
+.buttons {
+  width: 50vw;
+  height: 10vh;
+  display: flex;
+  margin-left: 25vw;
+  margin-right: 25vw;
+  justify-content: space-around;
+  margin-top: 20px;
+  .btn {
+    width: 10vw;
+    height: 5vh;
+    border-radius: 20px;
+    background-color: red;
+  }
+}
