@@ -1,0 +1,14 @@
+services:
+  proposal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: proposal
+    container_name: proposal
+    ports:
+      - "4200:4200"
+    image: proposal:latest
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
