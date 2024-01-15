@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import constants from '../../../constants';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
   constructor() {}
+  trial: any = constants;
   imageObject: Array<object> = [
     {
       image: 'assets/img/slider/1.jpg',
